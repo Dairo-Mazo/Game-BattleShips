@@ -1,92 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Game</title>
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Game</title>
+	</head>
 
-<body>
+	<body>
+		<div class="content-game">
+			<!--  Titulo del juego    -->
+			<h1 class="tittle-game">Battleship</h1>
 
-  <div class="content-game">
-    <!--  Titulo del juego    -->
-    <h1 class="tittle-game">Battleship</h1>
+			<!--  Resumen  -->
+			<span
+				>Puedes cambiar las posiciones de tus barcos volviendo a recargar la
+				página, gana el primero que logre destruir todos los barcos de su
+				enemigo</span
+			>
+			<p class="text-game">
+				Selecciona una posición de la computadora a atacar
+			</p>
 
-     <!--  Resumen  -->
-      <span>Puedes cambiar las posiciones de tus barcos volviendo a recargar la página, gana el primero que logre destruir todos los barcos de su enemigo</span>
-      <p class="text-game">Selecciona una posición de la computadora a atacar</p>
+			<!--  Titulo del juego    -->
+			<div class="name-players">
+				<h3>Usuario</h3>
+				<h3>Computadora</h3>
+			</div>
 
-      <!--  Titulo del juego    -->
-      <div class="name-players"> <h3>Usuairo</h3>  <h3>Computadora</h3>  </div>
+			<!--  Table del juego  -->
+			<div class="table-game">
+				<table>
+					<!--  Primeras posiciones de barcos de usuario   -->
+					<tr class="ships-user">
+						<td id="positionUser-1"></td>
+						<td id="positionUser-2"></td>
+						<td id="positionUser-3"></td>
+					</tr>
 
-      <!--  Table del juego  -->
-      <div class="table-game">
+					<!--  Segundas posiciones de barcos de usuario   -->
+					<tr class="ships-user">
+						<td id="positionUser-4"></td>
+						<td id="positionUser-5"></td>
+						<td id="positionUser-6"></td>
+					</tr>
 
-          <table>
+					<!--  Terceras posiciones de barcos de usuario   -->
+					<tr class="ships-user">
+						<td id="positionUser-7"></td>
+						<td id="positionUser-8"></td>
+						<td id="positionUser-9"></td>
+					</tr>
+				</table>
 
-            <!--  Primeras posiciones de barcos de usuario   -->
-            <tr class="ships-user">
-              <td id="positionUser-1"></td>
-              <td id="positionUser-2"></td>
-              <td id="positionUser-3"></td>
-            </tr>
+				<!--  Segunda tabla para las posiciones de la computadora   -->
+				<table>
+					<!--  Primeras posiciones de barcos de computadora   -->
+					<tr class="ships-pc">
+						<td><button type="button" id="positionPc-1"></button></td>
+						<td><button type="button" id="positionPc-2"></button></td>
+						<td><button type="button" id="positionPc-3"></button></td>
+					</tr>
 
-            <!--  Segundas posiciones de barcos de usuario   -->
-            <tr class="ships-user">
-              <td id="positionUser-4"></td>
-              <td id="positionUser-5"></td>
-              <td id="positionUser-6"></td>
-            </tr>
+					<!--  Segundas posiciones de barcos de computadora   -->
+					<tr class="ships-pc">
+						<td><button type="button" id="positionPc-4"></button></td>
+						<td><button type="button" id="positionPc-5"></button></td>
+						<td><button type="button" id="positionPc-6"></button></td>
+					</tr>
 
-            <!--  Terceras posiciones de barcos de usuario   -->
-            <tr class="ships-user">
-              <td id="positionUser-7">
-              <td id="positionUser-8">
-              <td id="positionUser-9">
-            </tr>
+					<!--  Terceras posiciones de barcos de computadora   -->
+					<tr class="ships-pc">
+						<td><button type="button" id="positionPc-7"></button></td>
+						<td><button type="button" id="positionPc-8"></button></td>
+						<td><button type="button" id="positionPc-9"></button></td>
+					</tr>
+				</table>
+			</div>
+			<!--  Texto de total de barcos de cada usuario  -->
+			<div class="name-players">
+				<h3 id="shipsUser">Barcos 4</h3>
+				<h3 id="shipsPc">Barcos 4</h3>
+			</div>
 
-          </table>
+			<h4 id="txt-result">
+				Selecciona una posición de la computadora a atacar
+			</h4>
 
-          <!--  Segunda tabla para las posiciones de la computadora   -->
-          <table>
+			<!--  Boton llama función para recargar de nuevo la página  -->
+			<button type="button" id="play-again" onclick="reload()">
+				Volver a jugar
+			</button>
+		</div>
 
-            <!--  Primeras posiciones de barcos de computadora   -->
-            <tr class="ships-pc">
-              <td><button type="button" id="positionPc-1"></button></td>
-              <td><button type="button" id="positionPc-2"></button></td>
-              <td><button type="button" id="positionPc-3"></button></td>
-            </tr>
-
-            <!--  Segundas posiciones de barcos de computadora   -->
-            <tr class="ships-pc">
-              <td><button type="button" id="positionPc-4"></button></td>
-              <td><button type="button" id="positionPc-5"></button></td>
-              <td><button type="button" id="positionPc-6"></button></td>
-            </tr>
-
-            <!--  Terceras posiciones de barcos de computadora   -->
-            <tr class="ships-pc">
-              <td><button type="button" id="positionPc-7"></button></td>
-              <td><button type="button" id="positionPc-8"></button></td>
-              <td><button type="button" id="positionPc-9"></button></td>
-            </tr>
-
-          </table>
-          
-        
-        </div>
-        <!--  Texto de total de barcos de cada usuario  -->
-        <div class="name-players"> <h3 id="shipsUser">Barcos 4</h3>  <h3 id="shipsPc">Barcos 4</h3>  </div>
-
-        <h4 id="txt-result">Selecciona una posición de la computadora a atacar</h4>
-      
-        <!--  Boton llama función para recargar de nuevo la página  -->
-        <button type="button" id="play-again" onclick="reload()">Volver a jugar</button>
-    </div>
-
-<script src="main.js"> </script>
-    
-</body>
+		<script src="main.js"></script>
+	</body>
 </html>
